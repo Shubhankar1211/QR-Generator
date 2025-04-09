@@ -102,33 +102,46 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    opacity: 0;
-    animation: scaleIn 0.6s ease-out 0.7s forwards;
-    transition: all 0.3s ease;
     background: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Initially hidden */
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    border: none;
+    transition: all 0.5s ease-out;
 }
 
-@keyframes scaleIn {
-    from {
+/* Show the QR code box when show-img class is added */
+#imgBox.show-img {
+    max-height: 220px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    opacity: 1;
+    border: 2px solid #ddd;
+    animation: popIn 0.5s ease-out forwards;
+}
+
+@keyframes popIn {
+    0% {
         transform: scale(0.8);
     }
-    to {
-        opacity: 1;
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
         transform: scale(1);
     }
 }
 
-#imgBox:before {
-    content: "QR Preview";
+#imgBox.loading:before {
+    content: "Generating...";
     position: absolute;
     color: #aaa;
     font-size: 0.9rem;
     font-weight: 500;
-}
-
-#imgBox.loading:before {
-    content: "Generating...";
     animation: pulse 1.5s infinite;
 }
 
@@ -168,7 +181,7 @@ button {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    animation: slideUpButton 0.6s ease-out 0.9s forwards;
+    animation: slideUpButton 0.6s ease-out 0.7s forwards;
     position: relative;
     overflow: hidden;
 }
@@ -219,7 +232,7 @@ button:active::after {
         padding: 30px 20px;
     }
     
-    #imgBox {
+    #imgBox.show-img {
         width: 180px;
         height: 180px;
     }
