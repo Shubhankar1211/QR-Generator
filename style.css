@@ -4,55 +4,43 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
+  }
+  
+  body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow-x: hidden;
-}
-
-.container {
+  }
+  
+  .container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
-    padding: 40px 30px;
+    padding: 30px 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 450px;
     text-align: center;
-    transform: translateY(20px);
-    opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
-}
-
-@keyframes fadeIn {
+  }
+  
+  @keyframes fadeIn {
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-.container p {
+  }
+  
+  .container p {
     color: #333;
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 25px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: slideInText 0.6s ease-out 0.3s forwards;
-}
-
-@keyframes slideInText {
-    to {
-        opacity: 1;
-    }
-}
-
-#qrText {
+  }
+  
+  #qrText {
     width: 100%;
     padding: 15px 20px;
     border: 2px solid #ddd;
@@ -60,116 +48,75 @@ body {
     font-size: 1rem;
     transition: all 0.3s ease;
     margin-bottom: 30px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: slideInInput 0.6s ease-out 0.5s forwards;
-}
-
-@keyframes slideInInput {
-    to {
-        opacity: 1;
-    }
-}
-
-#qrText.error {
+  }
+  
+  #qrText.error {
     animation: shake 0.3s linear;
     border-color: #ff3860;
     box-shadow: 0 0 0 3px rgba(255, 56, 96, 0.3);
-}
-
-@keyframes shake {
+  }
+  
+  @keyframes shake {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     50% { transform: translateX(5px); }
     75% { transform: translateX(-5px); }
-}
-
-#qrText.active,
-#qrText:focus {
+  }
+  
+  #qrText.active,
+  #qrText:focus {
     border-color: #764ba2;
     box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.3);
     outline: none;
-}
-
-#imgBox {
+  }
+  
+  #imgBox {
     width: 220px;
     height: 220px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     background: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
     /* Initially hidden */
     max-height: 0;
-    margin-top: 0;
-    margin-bottom: 0;
     opacity: 0;
     border: none;
     transition: all 0.5s ease-out;
-}
-
-/* Show the QR code box when show-img class is added */
-#imgBox.show-img {
+  }
+  
+  /* Show the QR code box when show-img class is added */
+  #imgBox.show-img {
     max-height: 220px;
-    margin-top: 15px;
     margin-bottom: 30px;
     opacity: 1;
     border: 2px solid #ddd;
-    animation: popIn 0.5s ease-out forwards;
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.8);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-#imgBox.loading:before {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #imgBox.loading:before {
     content: "Generating...";
     position: absolute;
     color: #aaa;
     font-size: 0.9rem;
-    font-weight: 500;
-    animation: pulse 1.5s infinite;
-}
-
-#imgBox img {
+  }
+  
+  #imgBox img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease;
-}
-
-#imgBox.show-img img {
+  }
+  
+  #imgBox.show-img img {
     opacity: 1;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.6;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.6;
-    }
-}
-
-button {
+  }
+  
+  button {
     background: linear-gradient(45deg, #764ba2, #667eea);
     color: white;
     border: none;
@@ -180,69 +127,31 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    animation: slideUpButton 0.6s ease-out 0.7s forwards;
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes slideUpButton {
-    to {
-        opacity: 1;
-    }
-}
-
-button:hover {
+  }
+  
+  button:hover {
     transform: translateY(-3px);
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
-}
-
-button:active {
+  }
+  
+  button:active {
     transform: translateY(1px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Button click effect */
-button::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transform: scale(10, 10);
-    opacity: 0;
-    transition: transform 0.5s, opacity 1s;
-}
-
-button:active::after {
-    transform: scale(0, 0);
-    opacity: 0.3;
-    transition: 0s;
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
     .container {
-        padding: 30px 20px;
+      padding: 25px 15px;
     }
     
     #imgBox.show-img {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .container p {
-        font-size: 1.1rem;
+      width: 180px;
+      height: 180px;
     }
     
     button {
-        padding: 12px 30px;
-        font-size: 1rem;
+      padding: 12px 30px;
+      font-size: 1rem;
     }
-}
+  }
